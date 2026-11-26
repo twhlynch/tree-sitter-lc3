@@ -1,0 +1,3 @@
+[submodule "lc3-test-suite"]
+	path = lc3-test-suite
+	url = https://github.com/twhlynch/lc3-test-suite.git

@@ -1,0 +1,4 @@
+*.dylib
+*.so
+
+node_modules/

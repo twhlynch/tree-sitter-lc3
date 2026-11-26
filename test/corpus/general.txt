@@ -1,0 +1,315 @@
+==================
+comprehensive
+==================
+; a convoluted program exercising the whole grammar
+; comments ;;; everywhere ;
+
+	.ORIG X3000	; start
+Start:	LEA r0, PASSMSG	; mixed case everywhere
+	ld r1,#03	; no space after comma
+	ldi r2,DATA
+	ST r3,RESULT
+	not r3,r3	; commas with no whitespace
+	add r4,r5,r6
+	AND R7,R7,R4
+	; every br flag variant
+	br brn brz brp brnz brzp brnp brnzp DONE
+	jmp r0
+	jmp R1
+	ret RET
+	jsr SUB1
+	jsrr r2
+	RTI
+	trap x25
+	trap #37
+	trap 0x20
+	trap 'a'
+	; every trap alias
+	GETC out Puts IN putsp putn reg HaLt
+DONE	HALT #1
+SUB1	ret
+LoneLabel
+	; leading and trailing comma forms
+	,br DONE
+	add, r0, r1
+	; multiple labels on one line
+MULTI1 MULTI2 .FILL #1
+	; position-agnostic token classification
+	#0 #0 #1 add and
+	; unknown directives and mnemonics still parse
+	.WHATEVER
+	xyz r0, r0, #1
+	Add add, r0, r1
+	brzpn Data
+	; every integer base and sign form
+	.FILL xFFFF 0x7B Xff 0Xa5 x-5 -xF +x5 +5
+	.FILL b1010 0b0 b10_1 0b1010_0101 o77 0o77
+	.FILL #0 #-1 1 -1 #007 #1_0
+	.FILL 'a' 'Z' ' ' '\n' '\t' '\r' '\\' '\'' '\"'
+	.BLKW #0 #1 X1 1
+RESULT	.FILL DONE
+	.STRINGZ "TEST_PASSED" "" "hello\nworld" "\t\r\\\"" "semi ; inside"
+	.STRINGZ "tab	inside"
+	.STRINGZ "unterminated
+Xx Xxx lower a1 z9 _test _CamelCase ALL_CAPS .BLKW #1
+
+	.END ; end of program
+this text after .END is ignored ; even comments
+garbage !!! ###
+---
+
+(document
+  (comment)
+  (comment)
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (integer))
+  (comment)
+  (line
+    (label)
+    (colon)
+    (mnemonic)
+    (register)
+    (comma)
+    (label))
+  (comment)
+  (line
+    (mnemonic)
+    (register)
+    (comma)
+    (integer))
+  (comment)
+  (line
+    (mnemonic)
+    (register)
+    (comma)
+    (label))
+  (line
+    (mnemonic)
+    (register)
+    (comma)
+    (label))
+  (line
+    (mnemonic)
+    (register)
+    (comma)
+    (register))
+  (comment)
+  (line
+    (mnemonic)
+    (register)
+    (comma)
+    (register)
+    (comma)
+    (register))
+  (line
+    (mnemonic)
+    (register)
+    (comma)
+    (register)
+    (comma)
+    (register))
+  (comment)
+  (line
+    (mnemonic)
+    (mnemonic)
+    (mnemonic)
+    (mnemonic)
+    (mnemonic)
+    (mnemonic)
+    (mnemonic)
+    (mnemonic)
+    (label))
+  (line
+    (mnemonic)
+    (register))
+  (line
+    (mnemonic)
+    (register))
+  (line
+    (mnemonic)
+    (mnemonic))
+  (line
+    (mnemonic)
+    (label))
+  (line
+    (mnemonic)
+    (register))
+  (line
+    (mnemonic))
+  (line
+    (mnemonic)
+    (integer))
+  (line
+    (mnemonic)
+    (integer))
+  (line
+    (mnemonic)
+    (integer))
+  (line
+    (mnemonic)
+    (integer))
+  (comment)
+  (line
+    (alias)
+    (alias)
+    (alias)
+    (alias)
+    (alias)
+    (alias)
+    (alias)
+    (alias))
+  (line
+    (label)
+    (alias)
+    (integer))
+  (line
+    (label)
+    (mnemonic))
+  (line
+    (label))
+  (comment)
+  (line
+    (comma)
+    (mnemonic)
+    (label))
+  (line
+    (mnemonic)
+    (comma)
+    (register)
+    (comma)
+    (register))
+  (comment)
+  (line
+    (label)
+    (label)
+    (directive
+      (period)
+      (directive_name))
+    (integer))
+  (comment)
+  (line
+    (integer)
+    (integer)
+    (integer)
+    (mnemonic)
+    (mnemonic))
+  (comment)
+  (line
+    (directive
+      (period)
+      (directive_name)))
+  (line
+    (label)
+    (register)
+    (comma)
+    (register)
+    (comma)
+    (integer))
+  (line
+    (mnemonic)
+    (mnemonic)
+    (comma)
+    (register)
+    (comma)
+    (register))
+  (line
+    (label)
+    (label))
+  (comment)
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer))
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer))
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer))
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer)
+    (integer))
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (integer)
+    (integer)
+    (integer)
+    (integer))
+  (line
+    (label)
+    (directive
+      (period)
+      (directive_name))
+    (label))
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (string)
+    (string)
+    (string)
+    (string)
+    (string))
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (string))
+  (line
+    (directive
+      (period)
+      (directive_name))
+    (string))
+  (line
+    (label)
+    (label)
+    (label)
+    (label)
+    (label)
+    (label)
+    (label)
+    (label)
+    (directive
+      (period)
+      (directive_name))
+    (integer))
+  (end_directive
+    (period)
+    (end_name)))
