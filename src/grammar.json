@@ -160,6 +160,10 @@
               },
               {
                 "type": "SYMBOL",
+                "name": "maybe_trap_alias"
+              },
+              {
+                "type": "SYMBOL",
                 "name": "label"
               }
             ]
@@ -286,6 +290,13 @@
           "type": "PATTERN",
           "value": "\"(?:[^\"\\\\\\n]|\\\\[\\s\\S])*\"?"
         }
+      }
+    },
+    "maybe_trap_alias": {
+      "type": "TOKEN",
+      "content": {
+        "type": "PATTERN",
+        "value": "[a-z]+"
       }
     },
     "label": {

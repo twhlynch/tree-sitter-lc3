@@ -103,6 +103,10 @@
           "named": true
         },
         {
+          "type": "maybe_trap_alias",
+          "named": true
+        },
+        {
           "type": "mnemonic",
           "named": true
         },
@@ -151,6 +155,10 @@
   },
   {
     "type": "label",
+    "named": true
+  },
+  {
+    "type": "maybe_trap_alias",
     "named": true
   },
   {

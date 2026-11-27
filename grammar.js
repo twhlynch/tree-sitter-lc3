@@ -58,6 +58,7 @@ module.exports = grammar({
 						$.integer,
 						$.string,
 						$.colon,
+						$.maybe_trap_alias,
 						$.label,
 					),
 				),
@@ -97,6 +98,9 @@ module.exports = grammar({
 		string: (_$) =>
 			// closing quote optional
 			token(prec(1, /"(?:[^"\\\n]|\\[\s\S])*"?/)),
+
+		// lowercase label could be an unknown trap alias
+		maybe_trap_alias: (_$) => token(/[a-z]+/),
 
 		label: (_$) => /[A-Za-z_][A-Za-z0-9_]*/,
 

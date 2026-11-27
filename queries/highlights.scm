@@ -5,6 +5,7 @@
 (end_name) @constant.macro
 
 (label) @label
+(maybe_trap_alias) @label.special
 
 (alias) @function
 (mnemonic) @function.builtin

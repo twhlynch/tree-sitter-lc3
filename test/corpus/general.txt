@@ -202,7 +202,7 @@ garbage !!! ###
       (period)
       (directive_name)))
   (line
-    (label)
+    (maybe_trap_alias)
     (register)
     (comma)
     (register)
@@ -216,7 +216,7 @@ garbage !!! ###
     (comma)
     (register))
   (line
-    (label)
+    (maybe_trap_alias)
     (label))
   (comment)
   (line
@@ -300,7 +300,7 @@ garbage !!! ###
   (line
     (label)
     (label)
-    (label)
+    (maybe_trap_alias)
     (label)
     (label)
     (label)
